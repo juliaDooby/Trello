@@ -1,159 +1,132 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-    overflow: hidden;
+// Этапы действий
+// 1 Добавление карточки, обработка логики внутри textarea
+// 2 добавление доски
+// 3 изменение названия задачи
+// 4 перетаскиваение элементов
+// 5 удаление
+
+const lists = document.querySelectorAll('.list');
+const button = document.querySelectorAll('.button');
+
+function addTask() {
+  const btn = document.querySelector('.add__btn');
+  const addBtn = document.querySelector('.add__item-btn');
+  const cancelBtn = document.querySelector('.cancel__item-btn');
+  const textarea = document.querySelector('.textarea');
+  const form = document.querySelector('.form');
+
+  let value;
+
+  btn.addEventListener('click', () => {
+    form.style.display = 'block';
+    btn.style.display = 'none';
+    addBtn.style.display = 'none';
+
+    textarea.addEventListener('input', (e) => {
+      value = e.target.value;
+
+      if (value) {
+        addBtn.style.display = 'block';
+      } else {
+        addBtn.style.display = 'none';
+      }
+    });
+  });
+  cancelBtn.addEventListener('click', () => {
+    textarea.value = '';
+    value = '';
+    form.style.display = 'none';
+    btn.style.display = 'flex';
+  });
+
+  addBtn.addEventListener('click', () => {
+    const newItem = document.createElement('div');
+    newItem.classList.add('list__item');
+    newItem.draggable = true;
+    newItem.textContent = value;
+    lists[0].append(newItem);
+
+    textarea.value = '';
+    value = '';
+    form.style.display = 'none';
+    btn.style.display = 'flex';
+
+    dragNdrop();
+  });
 }
+addTask();
 
-body {
-    background: url("../img/1.jpg") center / cover no-repeat;
-    background-size: cover;
+function addBoard() {
+  const boards = document.querySelector('.boards');
+  const board = document.createElement('div');
+  board.classList.add('boards__item');
+  board.innerHTML = `
+  <span contenteditable="true" class="title">Введите название</span>
+  <div class="list"></div>
+  `;
+
+  boards.append(board);
+
+  changeTitle();
 }
+button.addEventListener('click', addBoard);
 
-.app {
-    display: flex;
-    flex-direction: column;
-    padding: 50px 0;
-    width: 100vh;
-    height: 100vh;
+function changeTitle() {
+  const titles = document.querySelectorAll('.title');
 
-    .boards {
-        display: flex;
-        width: 100%;
+  titles.forEach((title) => {
+    title.addEventListener('click', (e) => (e.target.textContent = ''));
+  });
+}
+changeTitle();
+dragNdrop();
 
-        &__item {
-            display: flex;
-            flex-direction: column;
-            align-self: baseline;
-            max-width: 250px;
-            width: 100%;
-            background-color: rgba(3, 72, 80, 0.7);
-            margin: 0 15px;
-            padding: 10px;
-            transition: 0.3s all ease;
-            border-radius: 3px;
-        }
+let draggedItem = null;
 
-        .title {
-            padding: 5px;
-            color: #f8f4eb;
+function dragNdrop() {
+  const listItems = document.querySelectorAll('.list__item');
+  const lists = document.querySelectorAll('.list');
 
-            &__focus {
-                outline: 1px solid rgba(168, 168, 168, 0.45);
-            }
-        }
+  for (i = 0; i < listItems.length; i++) {
+    const item = listItems[i];
 
-        .list {
-            min-height: 40px;
+    item.addEventListener('dragstart', () => {
+      draggedItem = item;
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 0);
+    });
 
-            &__item {
-                background-color: #f8f4eb;
-                border-radius: 3px;
-                padding: 10px;
-                text-align: center;
-                margin: 4px 0;
-                cursor: pointer;
-                font-weight: 400px;
-                font-size: 14px;
-                outline: none;
-                border: none;
-            }
-        }
+    item.addEventListener('dragend', () => {
+      setTimeout(() => {
+        item.style.display = 'block';
+        draggedItem = null;
+      }, 0);
+    });
 
-        .form {
-            border-radius: 3px;
-            margin-top: auto;
-            // скрытие формы
-            display: none;
+    item.addEventListener('dblclick', () => {
+      item.remove();
+    });
+    for (let j = 0; j < lists.length; j++) {
+      const list = lists[j];
 
-            .textarea {
-                resize: none;
-                height: 60px;
-                border-radius: 3px;
-                border: none;
-                background: #f8f4eb;
-                padding: 10px;
-                width: 100%;
+      list.addEventListener('dragover', (e) => e.preventDefault());
 
-                &:focus {
-                    outline: none;
-                }
-            }
+      list.addEventListener('dragenter', function (e) {
+        e.preventDefault();
+        this.style.backgroundColor = 'rgba(0,0,0,.3)';
+      });
 
-            .buttons {
-                display: flex;
+      list.addEventListener('dragleave', function (e) {
+        this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+      });
 
-                .add__item-btn {
-                    // background: rgb(241, 199, 167);
-                    background-color: rgba(55, 162, 156);
-                    border: none;
-                    height: 35px;
-                    cursor: pointer;
-                    color: #f8f4eb;
-                    border-radius: 3px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-right: 10px;
-                    width: 100%;
-                }
-
-                .cancel__item-btn {
-                    padding: 0 10px;
-                    // background: rgb(232, 163, 109);
-                    background: rgb(222, 148, 85);
-                    border: none;
-                    height: 35px;
-                    cursor: pointer;
-                    color: #f8f4eb;
-                    border-radius: 3px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 75px;
-                    margin-left: auto;
-                    flex-shrink: 0;
-                }
-            }
-        }
-
-        .add__btn {
-            height: 30px;
-            background: rgba(155, 155, 155, 0.3);
-            border-radius: 3px;
-            margin-top: 5px;
-            display: flex;
-            font-size: 12px;
-            align-items: center;
-            padding-left: 10px;
-            color: #f8f4eb;
-            cursor: pointer;
-
-            span {
-                font-size: 20px;
-                margin-right: 10px;
-                color: #f8f4eb;
-            }
-        }
+      list.addEventListener('drop', function (e) {
+        this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        this.append(draggedItem);
+      });
     }
-
-    .button {
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: rgba(2, 102, 82, 0.72);
-        border: none;
-        width: 150px;
-        cursor: pointer;
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        // выравнивание
-        transform: translate(-50%);
-        color: #f8f4eb;
-        border-radius: 3px;
-        font-size: 14px;
-    }
+  }
 }
+
+dragNdrop();
