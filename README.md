@@ -8,7 +8,7 @@
   
   ### Стек / Stack: 
   
-  * HTML5
+* HTML5
 * CSS3
 * Javascript
 
@@ -17,6 +17,8 @@
 ### Этапы разработки: 
 
 ### [FRONTEND] 
+
+* DragNDrop
 
 ---
 
