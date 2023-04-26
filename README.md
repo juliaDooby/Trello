@@ -2,7 +2,7 @@
 
 ### клон Трелло / Trello
 
-  [DragNDrop]()   
+  [посмотрите сами](https://juliadooby.github.io/Trello/)   
   
   ---
   
