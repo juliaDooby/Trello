@@ -1,25 +1,16 @@
+## Trello
 
- ⋞ ➤ МНЕ: ИСПРАВИТЬ ОШИБКИ И ОПУБЛИКОВАТЬ ! ◄╝ ⋟
-### клон Трелло / Trello
+  [demo](active_link)
+---
 
-  [посмотрите сами](https://juliadooby.github.io/Trello/)   
-  
-  ---
-  
-  ### Стек / Stack: 
-  
-* HTML5
-* CSS3
-* Javascript
+### Development: 
+
+  * DragNDrop
 
 ---
 
-### Этапы разработки: 
+### Stack: 
 
-### [FRONTEND] 
-
-* DragNDrop
-
----
-
-## Не забудьте поставить звездочку ! ! ! ★ 
+* HTML
+* CSS
+* Javascript 
