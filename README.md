@@ -11,7 +11,7 @@
 
 ### Development: 
 
-* Function of ToDO list
+* Function of To-Do list
 ---
 
 ### Technologies Used:
