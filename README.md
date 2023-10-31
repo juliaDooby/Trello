@@ -4,8 +4,8 @@
 
 ## Trello
 
-<div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_1.JPG" width="90%" height="20%"></img></div>
-<div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_2.JPG" width="90%" height="20%"></img></div>
+<div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_1.JPG" width="100%" height="20%"></img></div>
+<div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_2.JPG" width="100%" height="20%"></img></div>
 
   [demo](https://juliadooby.github.io/Trello/)
 ---
