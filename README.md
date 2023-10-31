@@ -1,18 +1,21 @@
 <!-- ## NOTE FOR ME: JSMASTERY DASHBOARD INSTEAD WITH MINI TASKS IN IT * -->
 
+<!--Сменить на сильный проект Pacman,ex -->
+
 ## Trello
 
-  [demo](active_link)
+<div align="center"><img src="" width="60%" height="20%"></img></div>
+
+  [demo](https://juliadooby.github.io/Trello/)
 ---
 
 ### Development: 
 
-  * DragNDrop
-
+* Function of ToDO list
 ---
 
-### Stack: 
+### Technologies Used:
 
-* HTML
-* CSS
+* HTML3
+* CSS3
 * Javascript 
