@@ -12,7 +12,9 @@
 
 ### Development: 
 
-* Function of To-Do list
+* Function of To-Do list:
+* Add new task
+* Delete task
 ---
 
 ### Technologies Used:
