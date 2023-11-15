@@ -4,6 +4,8 @@
 
 ## Trello
 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
 <div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_1.JPG" width="100%" height="20%"></img></div>
 <div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_2.JPG" width="100%" height="20%"></img></div>
 
