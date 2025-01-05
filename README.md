@@ -6,10 +6,11 @@
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+  <a href="https://juliadooby.github.io/Trello/"><strong>➥Demo</strong></a>
+  
 <div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_1.JPG" width="100%" height="20%"></img></div>
 <div align="center"><img src="https://github.com/juliaDooby/Trello/blob/main/Trello_2.JPG" width="100%" height="20%"></img></div>
 
-  [demo](https://juliadooby.github.io/Trello/)
 ---
 
 ### Development: 
@@ -24,4 +25,4 @@
 * HTML5
 * CSS3
 * SCSS
-* Javascript 
+* Javascript
